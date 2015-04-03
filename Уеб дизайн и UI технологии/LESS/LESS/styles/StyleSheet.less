@@ -1,0 +1,205 @@
+﻿@color-text: white;
+@color-input: #8949b9;
+@color-border: #000000;
+@color-grey: #a8a8a8;
+
+.mixin-default-border {
+    border: 2px solid @color-border;
+    border-radius: 15px;
+}
+
+.menu {
+    li:hover > a {
+        text-decoration: underline;
+        color: @color-grey;
+    }
+}
+
+.lier-gradient(@from, @to) {
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(-45deg, @from 1%, @to 93%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(1%,@from), color-stop(93%,@to)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(-45deg, @from 1%,@to 93%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(-45deg, @from 1%,@to 93%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(-45deg, @from 1%,@to 93%); /* IE10+ */
+    background: linear-gradient(135deg, @from 1%,@to 93%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@from', endColorstr='@to',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+body {
+    .lier-gradient(#ffffff,#8949b9);
+
+    header {
+        #header-container {
+            width: 100%;
+
+            div {
+                display: inline-block;
+            }
+
+            #logo-container {
+                margin-right: 42%;
+            }
+
+            #reg-form-container {
+                form {
+                    div {
+                        display: block;
+                        padding-left: 5px;
+
+                        label {
+                            text-align: right;
+                            display: inline-block;
+                            width: 70px;
+                            color: @color-text;
+                        }
+
+                        input {
+                            background: @color-input;
+                            border-radius: 8px;
+                            border-color: @color-border;
+                            border: 1px solid @color-border;
+                            margin-top: 5px;
+                        }
+                    }
+
+                    button {
+                        background: @color-input;
+                        color: @color-text;
+                        border-radius: 5px 5px 5px 5px;
+                        border: 1px solid @color-input;
+                        margin-top: 5px;
+                    }
+                }
+            }
+        }
+
+
+        nav {
+            .mixin-default-border;
+            .menu;
+            width: 75%;
+            height: 45px;
+            margin-left: 20px;
+            margin-bottom:20px;
+
+            ul {
+                margin-top: 10px;
+                padding-left: 20px;
+                list-style: none;
+
+                li {
+                    display: inline-block;
+
+                    a {
+                        color: @color-text;
+                        font-size: 20px;
+                        text-decoration: none;
+                        margin-right: 20px;
+                    }
+
+                    li {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+
+    section {
+        margin-top:40px;
+		margin-left:10px;
+		width:75%;
+		display:inline-block;	
+		float:left;
+        article {
+            .mixin-default-border;
+            margin-bottom: 20px;
+            padding: 20px;
+
+            header {
+                h1 {
+                    color: @color-text;
+                }
+            }
+
+            p {
+                color: @color-text;
+            }
+
+            footer {
+                text-align: right;
+                margin: 5px;
+
+                p {
+                    color: @color-text;
+
+                    a {
+                        color: @color-grey;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+
+    aside {
+        float: left;
+        width: 20%;
+        display: inline-block;
+        margin-right: 50px;
+        margin-top: 40px;
+
+        ul {
+            list-style: none;
+
+            li {
+                .mixin-default-border;
+                border-radius: 5px;
+                margin-bottom: 15px;
+                padding: 15px;
+
+                h2 {
+                    color: @color-text;
+                }
+
+                p {
+                    padding-left: 10px;
+                    color: @color-text;
+
+                    a, strong, em {
+                        color: @color-grey;
+                        text-decoration: none;
+                    }
+                }
+
+                ul {
+                    li {
+                        color: @color-text;
+                        border: none;
+                        margin: 5px;
+                        margin-left: 15px;
+                        padding: 0;
+                        padding-left: 25px;
+                        background: url(../images/li-dot.png) no-repeat;
+                        background-position: 0 50%;
+                    }
+                }
+            }
+        }
+    }
+
+    & > footer {
+        height: 100%;
+        min-height: 100%;
+        padding-top: 15px;
+        clear: both;
+
+        p {
+            font-size: 1.4em;
+            font-weight: bold;
+            text-align: center;
+            color: @color-text;
+        }
+    }
+}

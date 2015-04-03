@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.Matrixs", "01.Matrixs\01.Matrixs.csproj", "{BB477A8A-6787-432D-AAD2-511EE6DDAF04}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.MaxPlatform", "02.MaxPlatform\02.MaxPlatform.csproj", "{05E2148B-1C0A-4EE1-83EB-C226D26B1914}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.LongestSequenceInMatrix", "03.LongestSequenceInMatrix\03.LongestSequenceInMatrix.csproj", "{E77F6A90-DB2A-42E8-B2C9-6C80B063EFF3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05.SortStringArrayByLength", "05.SortStringArrayByLength\05.SortStringArrayByLength.csproj", "{C19B9802-9EFB-4CF1-AA69-D91914803FE1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BB477A8A-6787-432D-AAD2-511EE6DDAF04}.Debug|x86.ActiveCfg = Debug|x86
+		{BB477A8A-6787-432D-AAD2-511EE6DDAF04}.Debug|x86.Build.0 = Debug|x86
+		{BB477A8A-6787-432D-AAD2-511EE6DDAF04}.Release|x86.ActiveCfg = Release|x86
+		{BB477A8A-6787-432D-AAD2-511EE6DDAF04}.Release|x86.Build.0 = Release|x86
+		{05E2148B-1C0A-4EE1-83EB-C226D26B1914}.Debug|x86.ActiveCfg = Debug|x86
+		{05E2148B-1C0A-4EE1-83EB-C226D26B1914}.Debug|x86.Build.0 = Debug|x86
+		{05E2148B-1C0A-4EE1-83EB-C226D26B1914}.Release|x86.ActiveCfg = Release|x86
+		{05E2148B-1C0A-4EE1-83EB-C226D26B1914}.Release|x86.Build.0 = Release|x86
+		{E77F6A90-DB2A-42E8-B2C9-6C80B063EFF3}.Debug|x86.ActiveCfg = Debug|x86
+		{E77F6A90-DB2A-42E8-B2C9-6C80B063EFF3}.Debug|x86.Build.0 = Debug|x86
+		{E77F6A90-DB2A-42E8-B2C9-6C80B063EFF3}.Release|x86.ActiveCfg = Release|x86
+		{E77F6A90-DB2A-42E8-B2C9-6C80B063EFF3}.Release|x86.Build.0 = Release|x86
+		{C19B9802-9EFB-4CF1-AA69-D91914803FE1}.Debug|x86.ActiveCfg = Debug|x86
+		{C19B9802-9EFB-4CF1-AA69-D91914803FE1}.Debug|x86.Build.0 = Debug|x86
+		{C19B9802-9EFB-4CF1-AA69-D91914803FE1}.Release|x86.ActiveCfg = Release|x86
+		{C19B9802-9EFB-4CF1-AA69-D91914803FE1}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

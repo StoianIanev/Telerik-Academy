@@ -1,0 +1,6 @@
+﻿@model LibrarySystem.Model.Category
+
+<div class="editor-field">
+    @(Html.Kendo().EditorFor(model => model.Name).Encode(false))
+    @Html.ValidationMessageFor(model => model.Name)
+</div>

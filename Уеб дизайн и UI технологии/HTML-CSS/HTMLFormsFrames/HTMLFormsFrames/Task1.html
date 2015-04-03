@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <form>
+       
+        <fieldset>
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" placeholder="Enter your last name" />
+        </fieldset>
+                
+            
+        <fieldset>
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" placeholder="Enter your first name" />
+        </fieldset>
+        <fieldset>
+            <label for="address">Address</label>
+            <textarea name="Content" id="address" placeholder="Enter your address name"></textarea>
+        </fieldset>
+        <fieldset>
+            <label for="city">City</label>
+            <input type="text" id="city" placeholder="Enter city" />
+            <label for="state">State</label>
+            <input type="text" id="state" placeholder="Enter state" />
+        </fieldset>
+        <fieldset>
+            <label for="code">Zip/Postal Code</label>
+            <input type="text" id="code" placeholder="Enter zip/postal code" />
+        </fieldset>
+        <fieldset>
+            <label for="country">Country</label>
+            <select id="country">
+                <option>Bulgaria</option>
+                <option>Russia</option>
+                <option>Germany</option>
+                <option>France</option>
+                <option>Italy</option>
+            </select>
+        </fieldset>
+        <fieldset>
+            <label for="phone">Phone (county code, area code, number)</label>
+            <label>(+<input type="text" id="phone" />)</label>
+            <select>
+                <option>88</option>
+                <option>89</option>
+            </select>
+            <input type="tel" />
+        </fieldset>
+        <fieldset>
+            <label for="e-mail">E-mail</label>
+            <input type="email" id="e-mail" placeholder="Enter you e-mail" />
+        </fieldset>
+        <fieldset>
+            <label for="BirthDate">Birth date</label>
+            <label>Month <input type="number" id="BirthDate" min="1" max="12" /></label> <label>Day <input type="number" min="1" max="31" /></label>
+            <label>Year <input type="text" maxlength="4" /></label>
+        </fieldset>
+        <fieldset>
+            <label>Gender</label>
+            <select>
+                <option>Male</option>
+                <option>Female</option>
+            </select>
+        </fieldset>
+        <fieldset>
+            <label>Starting date</label>
+            <input type="radio" name="startingDate" /> Spring 2006
+            <input type="radio" name="startingDate" /> Summer 2006
+        </fieldset>
+        <fieldset>
+            <label for="commentsQuestions">Comments/Questions</label>
+            <textarea name="Content" id="commentsQuestions" placeholder="Enter your Comments/Questions"></textarea>
+        </fieldset>
+        <fieldset>
+            <center>
+                <input type="submit" value="Submit" /> <input type="reset" value="Clear This Form" />
+            </center>
+        </fieldset>
+    </form>
+</body>
+</html>

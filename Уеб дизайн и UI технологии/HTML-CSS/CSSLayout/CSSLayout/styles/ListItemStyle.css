@@ -1,0 +1,20 @@
+﻿ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul.menu {
+    display: none;
+}
+
+ul li ul li:hover > a {
+    text-decoration: underline;
+    color: #b6ff00;
+}
+
+ul li:hover > a + ul {
+    display: block;
+}

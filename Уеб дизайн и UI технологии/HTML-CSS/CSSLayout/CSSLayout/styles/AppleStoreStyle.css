@@ -1,0 +1,21 @@
+﻿h1 {
+    text-align: center;
+    color: blue;
+}
+
+img {
+    width: 150px;
+    float:left;
+}
+.price{
+    padding-top: 10px;
+}
+ul li {
+    list-style-type: none;
+    float: left;
+}
+.sliders{
+   margin-top: 150px;
+   margin-left: 20px;
+}
+

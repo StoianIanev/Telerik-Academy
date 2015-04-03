@@ -1,0 +1,33 @@
+﻿@model LibrarySystem.Models.TreeViewBookCommonViewModel
+@{
+    ViewBag.Title = "Home Page";
+}
+<h1>Books</h1>
+<br />
+<div>
+    @(Html.Kendo()
+    .AutoComplete()
+    .Name("SearchAutocomplete")
+    .DataTextField("Title")
+    .Filter(FilterType.Contains)
+    .MinLength(2)
+            //.Events(ev =>
+            //    {
+            //        ev.Select("selectAutoComplete");
+            //    })
+    .Placeholder("Search by book title/author...")
+    .HtmlAttributes(new { style = "width:250px" })
+    )
+    <input type="button" onclick="search()" value="Search" class="btn btn-default" />
+</div>
+<br />
+<div>
+    @(Html.Kendo()
+    .TreeView()
+            .Name("tree-view")
+            .BindTo(this.Model.TreeViewItems)
+            //.Events(e => e.Select("select"))
+    )
+</div>
+<script>
+</script>

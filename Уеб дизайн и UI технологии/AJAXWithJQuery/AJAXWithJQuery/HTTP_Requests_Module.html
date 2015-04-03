@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>HTTP Requests Module</title>
+    <link rel="stylesheet" href="styles/HTTPModuleStyle.css" />
+</head>
+<body>
+
+    <label for="tb-name">Name:</label>
+    <input type="text" id="name" />
+    <br />
+    <label for="tb-grade">Grade:</label>
+    <input type="number" min="1" max="12" id="grade" />
+    <br />
+    <button id="add-new">Add new</button>
+    <div id="message">
+        <strong class="message">
+        </strong>
+    </div>
+    <div id="students-container"></div>
+    <br />
+    <p>
+        This web page should be run on server (localhost or in WWW).
+    </p>
+    <script src="scripts/lib/jquery-2.1.3.min.js"></script>
+    <script>
+        $('<button>').text('Test').on('click', test).appendTo('body');
+        function test(){
+        var url = 'http://localhost:3000/students';
+        $.getJSON(url, function (data) {
+            var i, student, len, $studentsList;
+            $studentsList = $('<ul />');
+            for (i = 0, len = data.students.length; i < len; i += 1) {
+                student = data.students[i];
+                $('<li />')
+                    .html(student.name)
+                    .appendTo($studentsList);
+            }
+            $("#students-container").html($studentsList);
+        });
+        }
+    </script>
+</body>
+</html>

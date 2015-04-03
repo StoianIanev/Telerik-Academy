@@ -1,0 +1,30 @@
+﻿body{
+    background-color: #bdb2b2;
+}
+h1,li, nav a{
+    text-decoration:none;
+    color: white;
+    font-weight: bold;  
+}
+#underline{
+    text-decoration:underline;
+}
+.current{
+   background: #e1d8d8;
+}
+body > header > h1, body > footer, nav{
+    text-align: center;
+}
+footer p {
+    font-size: 10px;
+}
+p{
+     font-size: 15px;
+}
+a:hover{
+  text-decoration: underline;
+  color:black;
+}
+ul{
+    list-style-type:none;
+}

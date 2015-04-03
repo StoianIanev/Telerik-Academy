@@ -1,0 +1,19 @@
+﻿div {
+    border: 1px solid yellowgreen;
+    border-radius: 5px;
+    width: 100px;
+    height: 150px;
+}
+
+ul {
+    list-style-type: none;
+}
+#test {
+    width: 300px;
+    height: 200px;
+    float:right;
+    margin-right: 20px;
+}
+li:hover{
+    background: #b6ff00;
+}

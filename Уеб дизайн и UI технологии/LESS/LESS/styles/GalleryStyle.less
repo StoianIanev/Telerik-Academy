@@ -1,0 +1,32 @@
+﻿body {
+    #imageBar {
+        li {
+            display: inline-block;
+
+            label {
+                img {
+                    width: 210px;
+                    height: 200px;
+                }
+            }
+        }
+    }
+
+    #images{
+        list-style: none;
+        li {
+            input {
+                display: none;
+
+                 &:checked + img {
+                    display: inline-block;
+                    max-width: 600px;
+                    max-height:600px;
+                }
+            }
+            img {
+				display:none;
+			}
+        }
+    }
+}

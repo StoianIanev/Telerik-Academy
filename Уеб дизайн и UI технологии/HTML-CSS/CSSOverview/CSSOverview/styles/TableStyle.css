@@ -1,0 +1,39 @@
+﻿
+table,tr,td,th{
+    padding-left: 6px;
+    padding-right: 6px;
+    border-collapse: collapse;
+    box-shadow: -1px 0 0 rgba(255, 255, 255, 0.28);
+    border: 1px solid rgba(0,0,0,0.2);
+    
+}
+th {
+    background-color: #4cff00;
+    color: white;
+    font-weight: normal;
+}
+
+tr:nth-child(2n+1) {
+    background-color: #DCDCDC;
+}
+
+.germany-flag, .mexico-flag, .uk-flag {
+    height: 15px;
+    width: 15px;
+   padding-right: 0.5em;
+}
+
+.germany-flag {
+    content: url(../img/germany-flag.png);
+}
+
+.mexico-flag {
+    content: url(../img/flag_mexico.jpg);
+}
+
+.uk-flag {
+    content: url('../img/United Kingdom(Great Britain).png');
+}
+td input{
+     box-shadow: -2px -2px  #000000  ;
+}

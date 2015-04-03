@@ -1,0 +1,34 @@
+﻿@model IEnumerable<LibrarySystem.Model.Category>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Edit Categories</h2>
+<div>
+    @(Html.Kendo().Grid(Model)
+.Name("gridCategory")
+.Columns(columns =>
+        {
+            columns.Bound(b => b.Name);
+            columns.Template(@<text>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-default" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+            </text>).HeaderTemplate("Action");
+        })
+     .Pageable()
+     .Sortable()
+    .Filterable()
+    .DataSource(dataSource => dataSource
+    .Server()
+    .Read(read => read.Action("Index", "Categories"))
+    .PageSize(3))
+)
+
+</div>
+<br />
+@Html.ActionLink("Create New", "Create", new { @class = "btn" })
+<br />
+<br />
+<p>
+    <a class="btn btn-default" href="http://localhost:53195/Admin/Books">Back to Books</a>
+</p>

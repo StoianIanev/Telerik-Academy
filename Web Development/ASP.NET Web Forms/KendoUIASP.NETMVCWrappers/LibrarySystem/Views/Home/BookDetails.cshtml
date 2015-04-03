@@ -1,0 +1,18 @@
+﻿@model LibrarySystem.Model.Book
+
+@{
+    ViewBag.Title = "BookDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Book Details</h2>
+<div>
+    <div><h3>@Model.Title</h3></div>
+    <div><i>by @Model.Author</i></div>
+    <div><i>ISBN @Model.ISBN)</i></div>
+    <div><i>web site: <a href="#">@Model.Website</a></i></div>
+    <div><i>@Model.Description</i></div>
+    <div>@Model.Category.Name</div>
+</div>
+<br />
+@Html.ActionLink("Back to books", "Index", new { @class="btn" })

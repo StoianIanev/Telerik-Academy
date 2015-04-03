@@ -1,0 +1,26 @@
+﻿@model LibrarySystem.Model.Category
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        <div>
+            <h2>Confirm Category Deletion?</h2>
+            @Html.LabelFor(m => m.Name, new { @class = "control-label" })
+            @Html.DisplayFor(m => m.Name, new { rows = 10, columns = 50, @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Delete" class="btn btn-danger" />
+        </div>
+    }
+<p>
+    <a class="btn btn-default" href="http://localhost:53195/Admin/Categories">Cancel</a>
+</p>
+
+
+

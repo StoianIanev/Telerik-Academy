@@ -1,0 +1,38 @@
+﻿body {
+    background: #b5b4b4;
+}
+
+h1, dd.darker {
+    color: gray;
+}
+
+dd.status {
+    color: orange;
+}
+
+dt {
+    color: white;
+    font-style: italic;
+}
+
+dd {
+    color: yellow;
+}
+
+dt, dd {
+    font-weight: bold;
+}
+
+#name:before {
+    content: ' ';
+    background: mediumseagreen;
+    margin-right: 6px;
+    width: 0.9em;
+    height: 0.9em;
+    border-radius: 90%;
+    display: inline-block;
+}
+
+#redStatus {
+    color: red;
+}

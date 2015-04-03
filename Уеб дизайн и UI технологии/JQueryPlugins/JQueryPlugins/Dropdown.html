@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Dropdown</title>
+    <link rel="stylesheet" href="style/DropdownStyle.css">
+    <script src="scripts/jquery-2.1.3.min.js"></script>
+    <script src="scripts/Dropdown.js"></script>
+</head>
+<body>
+    <select id="dropdown">
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+        <option value="4">Four</option>
+        <option value="5">Five</option>
+        <option value="6">Six</option>
+    </select>
+    <div id="test"></div>
+    <script>
+        $('#dropdown').dropdown();
+        $('body').on('click', function () {
+            $('#test').append($('<span>').css('display', 'block').text($('#dropdown').val()));
+            console.log($('#dropdown[selected=true]'));
+            console.log($('select option:selected'));
+        });
+    </script>
+</body>
+</html>

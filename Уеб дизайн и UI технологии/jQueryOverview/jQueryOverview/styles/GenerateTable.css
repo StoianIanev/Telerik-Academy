@@ -1,0 +1,11 @@
+﻿body {
+    background: #9cd8f2;
+}
+
+table, td, th {
+    border: 1px solid #000000;
+}
+
+td, th {
+    padding: 5px;
+}
