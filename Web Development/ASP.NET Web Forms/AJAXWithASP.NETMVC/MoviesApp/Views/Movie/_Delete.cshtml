@@ -1,0 +1,58 @@
+﻿@model MoviesApp.Models.Movie
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="delete-movie">
+    <h1>Delete movie</h1>
+    <h3>Are you sure you want to delete this?</h3>
+    <dl>
+        <dt>
+            @Html.DisplayNameFor(m => m.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(m => m.Title)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(m => m.Director)
+        </dt>
+        <dd>
+            @Html.DisplayFor(m => m.Director)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(m => m.Studio)
+        </dt>
+        <dd>
+            @Html.DisplayFor(m => m.Studio)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(m => m.StudioAddress)
+        </dt>
+        <dd>
+            @Html.DisplayFor(m => m.StudioAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(m => m.Year)
+        </dt>
+        <dd>
+            @Html.DisplayFor(m => m.Year)
+        </dd>
+    </dl>
+</div>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-group">
+        <input type="submit" value="Delete" class="btn btn-danger" />
+    </div>
+} 
+@Html.ActionLink("Back to List", "Index", "", new { @class = "btn btn-primary" })

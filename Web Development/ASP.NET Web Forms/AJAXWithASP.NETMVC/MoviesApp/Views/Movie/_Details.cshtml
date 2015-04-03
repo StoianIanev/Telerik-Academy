@@ -1,0 +1,95 @@
+﻿@model MoviesApp.Models.Movie
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div id="details-movie">
+    <h2>Details for movie</h2>
+    <dl>
+        <dt>
+            @Html.DisplayNameFor(m => m.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(m => m.Title)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(m => m.Director)
+        </dt>
+        <dd>
+            @Html.DisplayFor(m => m.Director)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(m => m.Studio)
+        </dt>
+        <dd>
+            @Html.DisplayFor(m => m.Studio)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(m => m.StudioAddress)
+        </dt>
+        <dd>
+            @Html.DisplayFor(m => m.StudioAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(m => m.Year)
+        </dt>
+        <dd>
+            @Html.DisplayFor(m => m.Year)
+        </dd>
+    </dl>
+    <dl>
+        @if (Model.LeadingFemaleRole != null)
+        {
+            <dt>
+                @Html.DisplayNameFor(m => m.LeadingFemaleRole.Name)
+            </dt>
+            <dd>
+                @Html.DisplayFor(m => m.LeadingFemaleRole.Name)
+            </dd>
+
+
+            <dt>
+                @Html.DisplayNameFor(m => m.LeadingFemaleRole.Age)
+            </dt>
+            <dd>
+                @Html.DisplayFor(m => m.LeadingFemaleRole.Age)
+            </dd>
+        }
+        else
+        {
+            <dt>No female actor</dt>
+        }
+
+        @if (Model.LeadingMaleRole != null)
+        {
+            <dt>
+                @Html.DisplayNameFor(m => m.LeadingMaleRole.Name)
+            </dt>
+            <dd>
+                @Html.DisplayFor(m => m.LeadingMaleRole.Name)
+            </dd>
+
+
+            <dt>
+                @Html.DisplayNameFor(m => m.LeadingMaleRole.Age)
+            </dt>
+            <dd>
+                @Html.DisplayFor(m => m.LeadingMaleRole.Age)
+            </dd>
+        }
+        else
+        {
+            <dt>No male actor</dt>
+        }
+    </dl>
+</div>
+<br />
+@Html.ActionLink("Edit", "Edit", new { id = @Model.Id }, new { @class = "btn btn-warning"})
+@Html.ActionLink("Delete", "Delete","", new { @class = "btn btn-danger" })

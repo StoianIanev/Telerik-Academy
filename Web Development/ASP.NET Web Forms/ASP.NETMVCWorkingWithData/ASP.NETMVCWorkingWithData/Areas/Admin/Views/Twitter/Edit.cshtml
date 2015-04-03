@@ -1,0 +1,32 @@
+﻿@model Twitter.Model.Tweet
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Edit";
+}
+<br />
+<br />
+<br />
+<br />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div>
+        @Html.LabelFor(model => model.Content, new { @class = "control-label" })
+        @Html.EditorFor(model => model.Content, null, new { htmlAttributes = new { @class = "form-control" }})
+        @Html.ValidationMessageFor(model => model.Content)
+        <div>
+
+        </div>
+    </div>
+    <br />
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-success" />
+    </div>
+}
+<p>
+    <a class="btn btn-default" href="http://localhost:49389/Admin/Twitter">Cancel</a>
+</p>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

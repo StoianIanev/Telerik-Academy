@@ -1,0 +1,22 @@
+﻿@model Twitter.Model.Tweet
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Delete";
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div>
+        <h2>Delete content:</h2>
+        @Html.LabelFor(m => m.Content, new { @class = "control-label" })
+        @Html.DisplayFor(m => m.Content, new {@class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Delete" class="btn btn-danger" />
+    </div>
+}
+<p>
+    <a class="btn btn-default" href="http://localhost:49389/Admin/Twitter">Cancel</a>
+</p>

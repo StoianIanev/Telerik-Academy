@@ -1,0 +1,6 @@
+﻿﻿@model InformationalAspPage.Models.Books
+<div>
+    <h3>Title: @Model.Title</h3>
+    @Html.ActionLink("View Details", "BookAuthor", "Books", new { id = Model.Id }, new { @class = "btn btn-info" })
+</div>
+

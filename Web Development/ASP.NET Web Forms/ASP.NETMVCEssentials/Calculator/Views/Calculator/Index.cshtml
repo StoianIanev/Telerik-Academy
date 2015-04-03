@@ -1,0 +1,30 @@
+﻿@model IList<SelectListItem>
+﻿<link href="~/style/Style.css" rel="stylesheet" />
+
+<img src="~/img/binaryIcon.png" />
+<h2>Bit Calculator</h2>
+@using (Ajax.BeginForm("Result", "Calculator",new AjaxOptions{
+    UpdateTargetId = "result",
+    InsertionMode = InsertionMode.Replace,
+}))
+{ 
+<div>
+    @Html.Label("Quantity", "Quantity: ", new { htmlAttributes = new { @class = "form-control" } })
+    @Html.Editor("Quantity", new { htmlAttributes = new { @class = "form-control" } })
+</div>
+<div>
+    @Html.Label("Types", "Type: ")
+    @Html.DropDownList("Types", Model, new { @class = "form-control" })
+</div>
+<div>
+    @Html.Label("Kilo", "Kilo: ")
+    @Html.DropDownList("Kilo", new List<SelectListItem>()
+                {
+                    new SelectListItem() {Text="1024", Value="1024"},
+                    new SelectListItem() {Text="1000", Value="1000"},
+                }, new { @class = "form-control" })
+</div>
+}
+<br />
+<input type="submit" value="GO" class="btn btn-primary btn-sm" />
+<div id="result"></div>

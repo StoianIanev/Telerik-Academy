@@ -1,0 +1,13 @@
+﻿@model Twitter.Model.Tweet
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Tweet";
+}
+<div>
+    @Model.Content
+    @foreach (var tag in @Model.Tag)
+    {
+        @Html.ActionLink(tag.Title.ToString(), "Index", "Tags", new { tag = tag.Title }, new { @class = "btn-info" })
+        <span style="margin-right:5px;"></span>
+    }
+</div>

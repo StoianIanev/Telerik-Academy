@@ -1,0 +1,11 @@
+﻿﻿@model InformationalAspPage.Models.Books
+
+@{
+    ViewBag.Title = "AboutAuthor";
+}
+
+<h2>@Model.Author</h2>
+<div>
+    <p>@Model.DescriptionAboutAuthor</p>
+    @Html.ActionLink("Back", "Index", "Books", new { @class = "btn btn-danger" })
+</div>

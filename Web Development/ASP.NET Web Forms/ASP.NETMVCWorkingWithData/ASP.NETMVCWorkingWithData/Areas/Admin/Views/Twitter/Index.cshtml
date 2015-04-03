@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Twitter.Model.Tweet>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Index";
+}
+<br />
+<div>
+    @(Html.Kendo().Grid(Model)
+.Name("grid")
+.Columns(columns =>
+{
+    columns.Bound(b => b.Content);
+    columns.Bound(b => b.Tag);
+    columns.Template(@<text>
+        @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-default" })
+        @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+    </text>).HeaderTemplate("Action");
+})
+                .Pageable()
+                .Sortable()
+                .Filterable()
+                .DataSource(dataSource => dataSource
+                .Server()
+                .Read(read => read.Action("Index", "Twitter"))
+                .PageSize(3))
+    )
+
+</div>

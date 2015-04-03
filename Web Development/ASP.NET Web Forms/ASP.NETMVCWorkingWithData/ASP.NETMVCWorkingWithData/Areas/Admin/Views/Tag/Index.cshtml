@@ -1,0 +1,17 @@
+﻿@model List<Twitter.Model.Tag>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Index";
+}
+<div>
+    @foreach (var tag in Model)
+    {
+        foreach (var tweet in tag.Tweet)
+        {
+            @Html.Partial("_Tweet", tweet)
+        }
+    }
+
+</div>
+
+

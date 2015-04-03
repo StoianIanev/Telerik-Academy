@@ -1,0 +1,14 @@
+﻿﻿@using InformationalAspPage.Models;
+@model IEnumerable<Books>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>All Books</h2>
+
+@foreach (Books book in Model)
+{
+    @Html.Partial("_BooksInfo", book)
+}
+
+

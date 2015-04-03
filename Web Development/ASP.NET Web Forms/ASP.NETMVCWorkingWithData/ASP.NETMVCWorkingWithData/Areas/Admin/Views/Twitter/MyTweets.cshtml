@@ -1,0 +1,13 @@
+﻿@model List<Twitter.Model.Tweet>
+@{
+    ViewBag.Title = "MyTweets";
+}
+
+<h2>My Tweets</h2>
+<div>
+    @foreach (var tweet in Model)
+    {
+        @Html.Partial("_Tweet", tweet);
+    }
+    @Html.Partial("_Create", new Twitter.Model.Tweet() { })
+</div>
