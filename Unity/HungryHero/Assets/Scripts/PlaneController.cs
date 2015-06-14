@@ -8,16 +8,14 @@ public class PlaneController : MonoBehaviour
     private Animator animator;
     public bool gameStarted;
 
-
     public void Start()
     {
         this.animator = this.GetComponent<Animator>();
-        hero = GameObject.FindGameObjectWithTag("hero");
+        this.hero = GameObject.FindGameObjectWithTag("hero");
     }
-
     public void Update()
     {
-        if (Input.GetButtonDown("Fire1") || Input.touchSupported)
+        if (Input.GetButtonDown("Fire1") || Input.touchCount == 1)
         {
             var startButton = GameObject.Find("StartButton");
             var renderer = startButton.GetComponent<SpriteRenderer>();
@@ -28,32 +26,13 @@ public class PlaneController : MonoBehaviour
         }
         if (this.gameStarted == true)
         {
-            this.transform.Translate(new Vector3(speedHor, 0, 0) * Time.deltaTime);
+            this.transform.Translate(new Vector3(this.speedHor, 0, 0) * Time.deltaTime);
+            this.speedHor = -10;
         }
         else
         {
             this.animator.enabled = false;
             this.speedHor = 0;
-        }
-
-
-    }
-    public void OnTriggerExit2D(Collider2D collider)
-    {
-        if (collider.gameObject.CompareTag("hero"))
-        {
-            speedHor = -10;
-            this.animator.SetBool("OrangePlaneDead", false);
-        }
-        if (collider.gameObject.CompareTag("hero"))
-        {
-            speedHor = -10;
-            this.animator.SetBool("BluePlaneDead", false);
-        }
-        if (collider.gameObject.CompareTag("hero"))
-        {
-            speedHor = -10;
-            this.animator.SetBool("GreenPlaneDead", false);
         }
     }
     public void OnTriggerEnter2D(Collider2D collider)
@@ -61,17 +40,32 @@ public class PlaneController : MonoBehaviour
         if (collider.gameObject.CompareTag("hero"))
         {
             this.animator.SetBool("OrangePlaneDead", true);
-            speedHor = 0;
+            this.speedHor = 0;
         }
         if (collider.gameObject.CompareTag("hero"))
         {
             this.animator.SetBool("BluePlaneDead", true);
-            speedHor = 0;
+            this.speedHor = 0;
         }
         if (collider.gameObject.CompareTag("hero"))
         {
             this.animator.SetBool("GreenPlaneDead", true);
-            speedHor = 0;
+            this.speedHor = 0;
+        }
+    }
+    public void OnTriggerExit2D(Collider2D collider)
+    {
+        if (collider.gameObject.CompareTag("hero"))
+        {
+            this.animator.SetBool("OrangePlaneDead", false);
+        }
+        if (collider.gameObject.CompareTag("hero"))
+        {
+            this.animator.SetBool("BluePlaneDead", false);
+        }
+        if (collider.gameObject.CompareTag("hero"))
+        {
+            this.animator.SetBool("GreenPlaneDead", false);
         }
     }
 }

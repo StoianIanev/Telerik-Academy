@@ -13,7 +13,7 @@ public class Play : MonoBehaviour
     }
     public void Update()
     {
-        if (Input.GetButtonDown("Fire1") || Input.touchSupported)
+        if (Input.GetButtonDown("Fire1") || Input.touchCount == 1)
         {
             this.audioSorce.Stop();
         }

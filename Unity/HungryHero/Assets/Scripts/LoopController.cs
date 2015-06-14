@@ -9,7 +9,6 @@ public class LoopController : MonoBehaviour
     public void Start()
     {
         this.offsetOfX = this.transform.position.x - this.hero.transform.position.x;
-
     }
 
     public void Update()
