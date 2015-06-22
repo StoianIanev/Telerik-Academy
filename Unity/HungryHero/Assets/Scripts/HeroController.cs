@@ -37,6 +37,8 @@ public class HeroController : MonoBehaviour
     private GameObject canvas;
 
     private GUIText txt;
+    public Texture2D pauseGameTexture;
+    public Texture2D stopMusicTexture;
 
     private Color color;
 
@@ -72,6 +74,42 @@ public class HeroController : MonoBehaviour
             GUILayout.Label("Score: " + score, style);
             GUILayout.Label("Distance travelled: " + this.distance, style);
             GUILayout.EndArea();
+
+            var playAgainButton = playAgain.GetComponent<Button>();
+            var main = mainButton.GetComponent<Button>();
+            var darkBackgroundRenderer = darkBackground.GetComponent<SpriteRenderer>();
+            var deadHeroCaptionRenderer = deadHeroCaption.GetComponent<SpriteRenderer>();
+            var canv = canvas.GetComponent<Canvas>();
+
+            playAgainButton.enabled = true;
+            main.enabled = true;
+            darkBackgroundRenderer.enabled = true;
+            deadHeroCaptionRenderer.enabled = true;
+            canv.enabled = true;
+
+            var positionX = Camera.main.transform.position.x;
+            var positionY = Camera.main.transform.position.y;
+
+            var playAgainButtonPosition = this.startButton.transform.position;
+            playAgainButtonPosition.x = Screen.width / 2;
+            playAgainButtonPosition.y = Screen.height / 2.2f;
+
+            var positionCaption = deadHeroCaptionRenderer.transform.position;
+            positionCaption.x = positionX +  0.5f;
+            positionCaption.y = positionY + 2;
+
+           var positionMainButton = this.startButton.transform.position;
+            positionMainButton.x = Screen.width / 2;
+            positionMainButton.y = playAgainButtonPosition.y / 2;
+
+            var positionDarkBackground = darkBackgroundRenderer.transform.position;
+            positionDarkBackground.x = positionX;
+            positionDarkBackground.y = positionY;
+
+            this.playAgain.transform.position = playAgainButtonPosition;
+            this.darkBackground.transform.position = positionDarkBackground;
+            this.deadHeroCaption.transform.position = positionCaption;
+            this.mainButton.transform.position = positionMainButton;
         }
     }
 
@@ -126,6 +164,10 @@ public class HeroController : MonoBehaviour
                 }
             }
         }
+        if (Input.GetButtonDown("Pause"))
+        {
+            Time.timeScale = 0;
+        }
     }
 
     public void FixedUpdate()
@@ -137,43 +179,38 @@ public class HeroController : MonoBehaviour
 
         if (this.isDeadHero == false && this.gameStarted == false)
         {
-#if UNITY_ANDROID
-            this.touchDeltaPosition = Input.GetTouch(0).deltaPosition;
-
-            // var touchPosition:Vector3;
-
-            this.touchPosition.Set(touchDeltaPosition.x,
-                               transform.position.y,
-                               touchDeltaPosition.y);
-
-            // Move object across XY plane
-            this.transform.position = Vector3.Lerp(this.transform.position, this.touchPosition, Time.deltaTime * 10);
-
-#else
+            #if UNITY_ANDROID
+                        var targetPos = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
+                        targetPos.x = this.transform.position.x;
+                        transform.position = Vector2.MoveTowards(this.transform.position, targetPos, this.speedHor * Time.deltaTime);
+                        this.distance = (int)this.transform.position.x;
+                        if (Input.touchCount == 2)
+                        {
+                            Time.timeScale = 0;
+                        }
+                       
+            #else
             var targetPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             targetPos.x = this.transform.position.x;
-            transform.position = Vector2.MoveTowards(this.transform.position, targetPos, this.speedHor * Time.deltaTime);
+            this.transform.position = Vector2.MoveTowards(this.transform.position, targetPos, this.speedHor * Time.deltaTime);
             this.distance = (int)this.transform.position.x;
-            #endif
-            //var ver = Input.GetAxis("Vertical") * speedVer;
-            //this.transform.Translate(new Vector3(0, ver, 0) * Time.deltaTime);
+          #endif
         }
         else
         {
-            this.speedHor = 0;
             this.gameStarted = true;
         }
-
+        
         if (this.isCollideWithPlanes == true && this.lives >= 1)
         {
-            if (this.transform.position.y > this.minY && this.transform.position.y < this.maxY - 1)
+            if (this.transform.position.y > this.minY && this.transform.position.y + 1 < this.maxY)
             {
-                this.transform.position = new Vector3(this.transform.position.x + 4, 1f * Time.deltaTime);
+                this.transform.position = new Vector3(this.transform.position.x + 5, 1f);
                 speedHor = 0;
             }
             else
             {
-                this.transform.position = new Vector3(this.transform.position.x + 4, -1f);
+                this.transform.position = new Vector3(this.transform.position.x + 5, -1f);
                 speedHor = 0;
             }
         }
@@ -222,43 +259,6 @@ public class HeroController : MonoBehaviour
                     this.audioSorce.Stop();
                     this.audioSorce.PlayOneShot(this.deadHero);
                     this.isDeadHero = true;
-
-                    var playAgainButton = playAgain.GetComponent<Button>();
-                    var main = mainButton.GetComponent<Button>();
-                    var darkBackgroundRenderer = darkBackground.GetComponent<SpriteRenderer>();
-                    var deadHeroCaptionRenderer = deadHeroCaption.GetComponent<SpriteRenderer>();
-                    var canv = canvas.GetComponent<Canvas>();
-
-                    playAgainButton.enabled = true;
-                    main.enabled = true;
-                    darkBackgroundRenderer.enabled = true;
-                    deadHeroCaptionRenderer.enabled = true;
-                    canv.enabled = true;
-
-                    var playAgainButtonX = Camera.main.transform.position.x;
-                    var playAgainButtonY = Camera.main.transform.position.y;
-
-                    var playAgainButtonPosition = this.startButton.transform.position;
-                    playAgainButtonPosition.x = playAgainButtonX + 250;
-                    playAgainButtonPosition.y = playAgainButtonY + 150;
-
-                    var positionCaption = this.startButton.transform.position;
-                    positionCaption.x = playAgainButtonX;
-                    positionCaption.y = playAgainButtonY + 2;
-
-                    var positionMainButton = this.startButton.transform.position;
-                    positionMainButton.x = playAgainButtonX + 350;
-                    positionMainButton.y = playAgainButtonY + 150;
-
-                    var positionDarkBackground = this.darkBackground.transform.position;
-                    positionDarkBackground.x = playAgainButtonX;
-                    positionDarkBackground.y = playAgainButtonY;
-
-                    this.playAgain.transform.position = playAgainButtonPosition;
-                    this.darkBackground.transform.position = positionDarkBackground;
-                    this.deadHeroCaption.transform.position = positionCaption;
-                    this.mainButton.transform.position = positionMainButton;
-                    canv.transform.position = positionMainButton;
 
                     this.animator.enabled = false;
                     Time.timeScale = 0;
